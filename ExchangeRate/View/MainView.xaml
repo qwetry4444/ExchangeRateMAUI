@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="ExchangeRate.View.MainPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:model="crl-namespace:ExchangeRate.Model"
+             xmlns:viewmodel="crl-namespace:ExchangeRate.ViewModel">
+
+    <VerticalStackLayout Padding="20" Spacing="70">
+        <Label HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium">Конвертор валют</Label>
+        <VerticalStackLayout HorizontalOptions="End" Spacing="15">
+            <HorizontalStackLayout VerticalOptions="Center" >
+                <Label VerticalOptions="Center">Дата</Label>
+                <DatePicker />
+            </HorizontalStackLayout>
+            <Label>Курс валют на</Label>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label>Из какой валюты конвертировать?</Label>
+            <HorizontalStackLayout Spacing="25">
+                <StackLayout>
+                    <Picker x:Name="SelectCurrencySrc" 
+                            ItemsSource="{Binding Valutes}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding }"> <!--SelectedIndexChanged="SelectedCurrencySrcChanged"-->
+                        <Picker.Items></Picker.Items>
+                    </Picker>
+                </StackLayout>
+                <Entry VerticalOptions="Center" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label>В какую валюту конвертировать?</Label>
+            <HorizontalStackLayout Spacing="25">
+                <StackLayout>
+                    <Picker>
+                        <Picker.Items></Picker.Items>
+                    </Picker>
+                </StackLayout>
+                <Label VerticalOptions="Center">123</Label>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
